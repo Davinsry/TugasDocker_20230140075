@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home - Pertemuan 6</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        .logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: white;
+        }
+        .welcome-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+        }
+        h1 { margin: 0 0 1rem 0; font-size: 2rem; }
+        p { color: #94a3b8; line-height: 1.6; }
+        .action-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: opacity 0.2s;
+        }
+        .action-btn:hover { opacity: 0.9; }
+        .result-box {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">DockerApp v1.0</div>
+            <div class="nav-links">
+                <a href="/home">Home</a>
+                <a href="/form">Form</a>
+                <a href="/login">Logout</a>
+            </div>
+        </nav>
+
+        <div class="welcome-card">
+            <h1>Selamat Datang di Home!</h1>
+            <p>Aplikasi ini berjalan di dalam Docker. Anda dapat mencoba memasukkan data melalui halaman form untuk melihat hasilnya di sini.</p>
+            <a href="/form" class="action-btn">Buka Form Input</a>
+
+            <div th:if="${productName}" class="result-box">
+                Data yang baru saja dimasukkan: <strong th:text="${productName}"></strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

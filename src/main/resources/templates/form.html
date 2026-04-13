@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Input - Pertemuan 6</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h1 { margin: 0 0 1.5rem 0; font-size: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; color: #94a3b8; }
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            box-sizing: border-box;
+        }
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+        .back-link {
+            display: block;
+            margin-top: 1rem;
+            text-align: center;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .back-link:hover { color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-card">
+            <h1>Input Data Baru</h1>
+            <form th:action="@{/form}" method="post">
+                <div class="form-group">
+                    <label for="productName">Nama Produk / Barang</label>
+                    <input type="text" id="productName" name="productName" placeholder="Contoh: Laptop Gaming" required>
+                </div>
+                <button type="submit">Kirim Data</button>
+            </form>
+            <a href="/home" class="back-link">Kembali ke Home</a>
+        </div>
+    </div>
+</body>
+</html>
