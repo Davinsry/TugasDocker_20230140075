@@ -92,8 +92,10 @@
             <p>Aplikasi ini berjalan di dalam Docker. Anda dapat mencoba memasukkan data melalui halaman form untuk melihat hasilnya di sini.</p>
             <a href="/form" class="action-btn">Buka Form Input</a>
 
-            <div th:if="${productName}" class="result-box">
-                Data yang baru saja dimasukkan: <strong th:text="${productName}"></strong>
+            <div th:if="${nama}" class="result-box" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <div><strong>Nama:</strong> <span th:text="${nama}"></span></div>
+                <div><strong>NIM:</strong> <span th:text="${nim}"></span></div>
+                <div><strong>Jenis Kelamin:</strong> <span th:text="${jenisKelamin}"></span></div>
             </div>
 
             <div class="stats-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem;">

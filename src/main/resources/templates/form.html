@@ -68,11 +68,23 @@
             <h1>Input Data Baru</h1>
             <form th:action="@{/form}" method="post">
                 <div class="form-group">
-                    <label for="productName">Nama Produk / Barang</label>
-                    <input type="text" id="productName" name="productName" placeholder="Contoh: Laptop Gaming" required>
-                    <small style="display: block; color: #64748b; margin-top: 0.5rem; font-size: 0.75rem;">Nama ini akan ditampilkan di dashboard setelah Anda menekan tombol kirim.</small>
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
                 </div>
-                <button type="submit">Kirim Data</button>
+                <div class="form-group">
+                    <label for="nim">NIM</label>
+                    <input type="text" id="nim" name="nim" placeholder="Masukkan NIM" required>
+                </div>
+                <div class="form-group">
+                    <label for="jenisKelamin">Jenis Kelamin</label>
+                    <select id="jenisKelamin" name="jenisKelamin" required 
+                            style="width: 100%; padding: 0.75rem; border-radius: 0.5rem; background: #0f172a; border: 1px solid rgba(255, 255, 255, 0.1); color: white;">
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+                <button type="submit">Kirim Data Mahasiswa</button>
             </form>
             <a href="/home" class="back-link">Kembali ke Home</a>
         </div>

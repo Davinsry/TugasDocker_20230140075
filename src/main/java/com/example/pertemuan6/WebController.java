@@ -37,9 +37,14 @@ public class WebController {
     }
 
     @GetMapping("/home")
-    public String home(Model model, @RequestParam(required = false) String productName) {
-        if (productName != null) {
-            model.addAttribute("productName", productName);
+    public String home(Model model, 
+                       @RequestParam(required = false) String nama,
+                       @RequestParam(required = false) String nim,
+                       @RequestParam(required = false) String jenisKelamin) {
+        if (nama != null) {
+            model.addAttribute("nama", nama);
+            model.addAttribute("nim", nim);
+            model.addAttribute("jenisKelamin", jenisKelamin);
         }
         return "home";
     }
@@ -50,8 +55,10 @@ public class WebController {
     }
 
     @PostMapping("/form")
-    public String submitForm(@RequestParam String productName) {
-        logger.info("Form disubmit dengan produk: {}", productName);
-        return "redirect:/home?productName=" + productName;
+    public String submitForm(@RequestParam String nama, 
+                             @RequestParam String nim, 
+                             @RequestParam String jenisKelamin) {
+        logger.info("Form disubmit: Nama={}, NIM={}, JK={}", nama, nim, jenisKelamin);
+        return "redirect:/home?nama=" + nama + "&nim=" + nim + "&jenisKelamin=" + jenisKelamin;
     }
 }
